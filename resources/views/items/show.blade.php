@@ -3,7 +3,7 @@
 @section('content')
   <div class=""single-item>
       <div class="single-item-title">
-        <table>
+        <table class="table table-md table-borderless table-show">
           <tr>
             <td>Kode Barang</td>
             <td>{{ $item->code }}</td>

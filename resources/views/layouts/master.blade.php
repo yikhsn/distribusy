@@ -5,8 +5,8 @@
 
     <title>Dashboard Template for Bootstrap</title>
 
-    <link href="css/app.css" rel="stylesheet">
-    <link href="css/dashboard.css" rel="stylesheet">
+    <link type="text/css" href="css/bootstrap.css" rel="stylesheet">
+    <link type="text/css" href="css/dashboard.css" rel="stylesheet">
   </head>
 
   <body>
