@@ -15,10 +15,17 @@ class CreateDistributorTable extends Migration
     {
         Schema::create('distributors', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('id_distributor');
-            $table->string('address');
             $table->string('name');
+            $table->string('owner');
+            $table->string('province');
+            $table->string('city');
+            $table->string('address');
+            $table->string('address_2');
+            $table->string('email');
             $table->integer('telephone');
+            $table->string('account');
+            $table->integer('distance');
+            $table->integer('bill');
             $table->timestamps();
         });
     }

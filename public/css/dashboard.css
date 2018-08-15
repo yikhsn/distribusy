@@ -54,6 +54,14 @@ body{
   margin-bottom: 30px;
 }
 
+.show-content{
+  background: var(--background-secondary-color);
+}
+
+.title-content{
+  color: var(--text-primary-color);
+}
+
 .main-button {
   background: var(--background-secondary-color);
   margin-right: 10px;
@@ -104,7 +112,7 @@ body{
   font-weight: 600;
 }
 
-/* ========================= END SIDENAV STYLE ===========================*/
+/* ========================= END SIDENAV STYLE =========================*/
 
 /* =========================== TABLE STYLE =============================*/
 
@@ -166,6 +174,16 @@ body{
   background: var(--background-primary-color);
   padding: 7px;
 }
+
+/* ========================== SHOW SINGLE STYLE ============================ */
+
+.single-item{
+  background: var(--background-secondary-color);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* ====================== END OF SHOW SINGLE STYLE ========================= */
 
 /* ========================= END OF TABLE STYLE ============================ */
 

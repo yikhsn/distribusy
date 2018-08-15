@@ -37,17 +37,28 @@ class ItemController extends Controller
     public function store()
     {
         $this->validate(request(), [
-            'name'      => 'required',
-            'code'      => 'required',
-            'stock'     => 'required',
-            'price'     => 'required'
+            'name'          => 'required',
+            'code'          => 'required',
+            // 'stock'         => 'required',
+            'price'         => 'required',
+            // 'description'   => 'required',
+            'weight'        => 'required',
+            'dimention'     => 'required',
+            'material'      => 'required'
+
         ]);
 
+        // dd(request()->all());
+
         Item::create([
-            'code'    => request('code'),
-            'name'    => request('name'),
-            'stock'   => request('stock'),
-            'price'   => request('price')
+            'code'          => request('code'),
+            'name'          => request('name'),
+            'stock'         => request('stock'),
+            'price'         => request('price'),
+            'description'   => request('description'),
+            'weight'        => request('weight'),
+            'dimention'     => request('dimention'),
+            'material'      => request('material')
         ]);
 
         return redirect('/item');
@@ -63,17 +74,27 @@ class ItemController extends Controller
     public function update($code)
     {
         $this->validate(request(),[
-            'name'      => 'required',
-            'stock'     => 'required',
-            'price'     => 'required'
+            'name'          => 'required',
+            'code'          => 'required',
+            // 'stock'         => 'required',
+            'price'         => 'required',
+            // 'description'   => 'required',
+            'weight'        => 'required',
+            'dimention'     => 'required',
+            'material'      => 'required'
         ]);
 
         Item::where('code', $code)
-                ->update([
-                    'name'      => request('name'),
-                    'stock'     => request('stock'),
-                    'price'     => request('price')
-                ]);
+            ->update([
+                'code'          => request('code'),
+                'name'          => request('name'),
+                'stock'         => request('stock'),
+                'price'         => request('price'),
+                'description'   => request('description'),
+                'weight'        => request('weight'),
+                'dimention'     => request('dimention'),
+                'material'      => request('material')
+            ]);
 
         return redirect('/item');
     }

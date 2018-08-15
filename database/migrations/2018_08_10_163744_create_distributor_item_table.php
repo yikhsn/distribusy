@@ -15,6 +15,8 @@ class CreateDistributorItemTable extends Migration
     {
         Schema::create('distributor_item', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('quantity');
+            $table->integer('total');
             $table->integer('distributor_id')->unsigned();
             $table->integer('item_id')->unsigned();
             $table->foreign('item_id')->references('id')->on('items')->onDelete('cascade');
