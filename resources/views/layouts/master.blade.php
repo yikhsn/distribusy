@@ -5,8 +5,8 @@
 
     <title>Dashboard Template for Bootstrap</title>
 
-    <link type="text/css" href="css/bootstrap.css" rel="stylesheet">
-    <link type="text/css" href="css/dashboard.css" rel="stylesheet">
+    <link type="text/css" href="/css/app.css" rel="stylesheet">
+    <link type="text/css" href="/css/dashboard.css" rel="stylesheet">
   </head>
 
   <body>
@@ -29,8 +29,8 @@
         </main>
       </div>
 
-    <script src="js/bootstrap.js"></script>
-    <script src="js/popper.js"></script>
-    <script src="js/jquery.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <script src="/js/popper.js"></script>
+    <script src="/js/jquery.js"></script>
   </body>
 </html>

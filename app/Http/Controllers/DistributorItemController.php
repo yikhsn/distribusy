@@ -60,7 +60,7 @@ class DistributorItemController extends Controller
     /**
      * page form to change data on pivot table
      */
-    public function edit_item($distributor_id, $item_id)
+    public function edit($distributor_id, $item_id)
     {
         $item = Distributor::find($distributor_id)
                             ->items()
