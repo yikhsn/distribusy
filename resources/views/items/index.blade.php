@@ -13,7 +13,6 @@
           <th class="align-middle">Kode Barang</th>
           <th class="align-middle">Harga/Unit</th>
           <th class="align-middle">Persedian</th>
-          <th class="align-middle">Deskripsi</th>
           <th class="align-middle">Berat</th>
           <th class="align-middle">Dimensi</th>
           <th class="align-middle">Material</th>
@@ -31,11 +30,10 @@
           <td class="align-middle">{{ $item->code }}</td>
           <td class="align-middle">{{ $item->price }}</td>
           <td class="align-middle">{{ $item->stock }}</td>
-          <td class="align-middle">{{ $item->description }}</td>
           <td class="align-middle">{{ $item->weight }}</td>
           <td class="align-middle">{{ $item->dimention }}</td>
           <td class="align-middle">{{ $item->material }}</td>
-          <td class="align-middle">{{ $item->distributors->count() }}</td>
+          <td class="align-middle">{{ $item->distributors()->count() }}</td>
           <td class="align-middle">...</td>
         </tr>
         <tr class="table-row-space">

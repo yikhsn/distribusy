@@ -39,14 +39,30 @@ class DistributorController extends Controller
     {
         $this->validate(request(), [
             'name'              => 'required',
+            'owner'             => 'required',
+            'province'          => 'required',
+            'city'              => 'required',
             'address'           => 'required',
-            'telephone'         => 'required'
+            'email'             => 'required',
+            'telephone'         => 'required',
+            // 'address_2'         => 'required',
+            // 'distance'          => 'required',
+            // 'bill'              => 'required',
+            'account'           => 'required'
         ]);
 
         Distributor::create([
             'name'              => request('name'),
+            'owner'             => request('owner'),
+            'province'          => request('province'),
+            'city'              => request('city'),
             'address'           => request('address'),
-            'telephone'         => request('telephone')
+            'address_2'         => request('address_2'),
+            'telephone'         => request('telephone'),
+            'email'             => request('email'),
+            'account'           => request('account'),
+            'bill'              => request('bill'),
+            'disctance'         => request('disctance')
         ]);
 
         return redirect('/distributor');

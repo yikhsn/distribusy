@@ -1,20 +1,57 @@
 @extends('layouts.master')
 
 @section('content')
-  <div class=""single-item>
+  <div id="content-container">
+  
+    <div class="header-content justify-content-between align-items-center">
+      <h2 class="title-content">Detail Distributor: {{ $distributor->name }}</h2>
+    </div> 
+    <div class="single-item">
       <div class="single-item-title">
-        <table>
+        <table class="table table-md table-borderless table-show">
           <tr>
-            <td>Nama Distributor</td>
-            <td>{{ $distributor->name }}</td>
+            <td class="col-md-4">Nama Distributor</td>
+            <td class="col-md-8">: {{ $distributor->name }}</td>
           </tr>
           <tr>
-            <td>Alamat</td>
-            <td>{{ $distributor->address }}</td>
+            <td class="col-md-4">Nama Pemilik</td>
+            <td class="col-md-8">: {{ $distributor->owner }}</td>
           </tr>
           <tr>
-            <td>Nomor Telepon</td>
-            <td>{{ $distributor->telephone }}</td>
+            <td class="col-md-4">Email</td>
+            <td class="col-md-8">: {{ $distributor->email }}</td>
+          </tr>
+          <tr>
+            <td class="col-md-4">No Telepon</td>
+            <td class="col-md-8">: {{ $distributor->telephone }}</td>
+          </tr>
+          <tr>
+            <td class="col-md-4">No Rekening</td>
+            <td class="col-md-8">: {{ $distributor->account }}</td>
+          </tr>
+          <tr>
+            <td class="col-md-4">Provinsi</td>
+            <td class="col-md-8">: {{ $distributor->province }}</td>
+          </tr>
+          <tr>
+            <td class="col-md-4">Kota</td>
+            <td class="col-md-8">: {{ $distributor->city }}</td>
+          </tr>
+          <tr>
+            <td class="col-md-4">Alamat</td>
+            <td class="col-md-8">: {{ $distributor->address }}</td>
+          </tr>
+          <tr>
+            <td class="col-md-4">Alamat 2</td>
+            <td class="col-md-8">: {{ $distributor->address_2 }}</td>
+          </tr>
+          <tr>
+            <td class="col-md-4">Jarak</td>
+            <td class="col-md-8">: {{ $distributor->distance }}</td>
+          </tr>
+          <tr>
+            <td class="col-md-4">Tagihan</td>
+            <td class="col-md-8">: {{ $distributor->bill }}</td>
           </tr>
           <tr>
             <td>Item</td>
@@ -28,5 +65,7 @@
           </tr>  
         </table>
       </div>
+    </div>
+
   </div>
 @endsection

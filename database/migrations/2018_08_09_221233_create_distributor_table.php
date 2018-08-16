@@ -20,12 +20,12 @@ class CreateDistributorTable extends Migration
             $table->string('province');
             $table->string('city');
             $table->string('address');
-            $table->string('address_2');
+            $table->string('address_2')->nullable();
             $table->string('email');
             $table->integer('telephone');
             $table->string('account');
-            $table->integer('distance');
-            $table->integer('bill');
+            $table->integer('distance')->nullable();
+            $table->integer('bill')->nullable();
             $table->timestamps();
         });
     }

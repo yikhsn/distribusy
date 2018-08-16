@@ -185,6 +185,15 @@ body{
 
 /* ====================== END OF SHOW SINGLE STYLE ========================= */
 
+/* ========================== EDIT SINGLE STYLE ============================ */
+
+.form-information{
+  font-size: 10px;
+  margin-left: 5px;
+}
+
+/* ========================== EDIT SINGLE STYLE ============================ */
+
 /* ========================= END OF TABLE STYLE ============================ */
 
 #content-container {
