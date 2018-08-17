@@ -17,7 +17,7 @@
               <input class="form-control" type="text" name="name" id="name"
                   placeholder="required" required>
               <small class="form-text text-muted">
-                Nama tempat distrubusi
+                Nama tempat distribusi
               </small>  
             </div>
             <div class="form-group col-md-6">

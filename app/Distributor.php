@@ -18,6 +18,6 @@ class Distributor extends Model
     {
         return $this->belongsToMany(Item::class)
                     ->withTimestamps()
-                    ->withPivot('total');
+                    ->withPivot(['total', 'quantity']);
     }
 }

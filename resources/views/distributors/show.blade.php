@@ -56,11 +56,14 @@
           <tr>
             <td>Item</td>
             <td>
-                <ul>
-                  @foreach($distributor->items as $item)
-                    <li> {{ $item->name }} - {{ $item->pivot->total }} Pieces <a href="/distributor/{{ $distributor->id }}/delete_item/{{ $item->pivot->item_id }}">Delete</a></li>
-                  @endforeach
-                </ul>
+              <ul>
+                @foreach($distributor->items as $item)
+                  <li> {{ $item->name }} - {{ $item->pivot->total }} Pieces 
+                    <a href="/distributor/{{ $distributor->id }}/delete_item/{{ $item->pivot->item_id }}">Delete</a>
+                    <a href="/distributor/{{ $distributor->id }}/edit_item/{{ $item->pivot->item_id }}">Edit</a>
+                  </li>
+                @endforeach
+              </ul>
               </td>
           </tr>  
         </table>

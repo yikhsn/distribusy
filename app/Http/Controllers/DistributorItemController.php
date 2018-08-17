@@ -9,7 +9,9 @@ class DistributorItemController extends Controller
 {
     public function create($distributor_id)
     {
-        return view('distributors.items.add', compact('distributor_id'));
+        $distributor = Distributor::with('items')->find($distributor_id);
+
+        return view('distributors.items.create', compact('distributor'));
     }
 
     /**
@@ -21,14 +23,16 @@ class DistributorItemController extends Controller
         $this->validate(request(), [
             // 'distributor_id'    => 'required',
             'item_id'           => 'required',
-            'total'             => 'required'
+            'total'             => 'required',
+            'quantity'          => 'required'
         ]);
 
         $distributor = Distributor::find($distributor_id);
 
-        $distributor->items()->attach( [
-            request('item_id') =>  ['total' => request('total')]
-        ]);
+        $distributor->items()->attach( [ request('item_id') =>  [
+            'total'     => request('total'),
+            'quantity'  => request('quantity') 
+        ] ]);
     }
 
     /**
@@ -48,13 +52,18 @@ class DistributorItemController extends Controller
      */
     public function update($distributor_id, $item_id)
     {
-        $this->validate(request(), ['total' => 'required']);
+        $this->validate(request(), [
+            'quantity'  => 'required',        
+            'total'     => 'required'
+        ]);
 
-        $distributor = Distributor::find($distributor_id)
-                                    ->items()
-                                    ->updateExistingPivot($item_id, [ 
-                                        'total' => request('total') 
-                                    ]);
+        $distributor = 
+            Distributor::find($distributor_id)
+                        ->items()
+                        ->updateExistingPivot($item_id, [ 
+                            'total'     => request('total') ,
+                            'quantity'  => request('quantity')
+            ]);
     }
 
     /**
