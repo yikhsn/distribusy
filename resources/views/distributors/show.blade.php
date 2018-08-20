@@ -58,7 +58,7 @@
             <td>
               <ul>
                 @foreach($distributor->items as $item)
-                  <li> {{ $item->name }} - {{ $item->pivot->total }} Pieces 
+                  <li> {{ $item->name }} - {{ $item->pivot->total }} Buah
                     <a href="/distributor/{{ $distributor->id }}/delete_item/{{ $item->pivot->item_id }}">Delete</a>
                     <a href="/distributor/{{ $distributor->id }}/edit_item/{{ $item->pivot->item_id }}">Edit</a>
                   </li>

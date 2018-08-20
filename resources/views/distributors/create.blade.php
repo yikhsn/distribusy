@@ -89,6 +89,7 @@
               Alamat alternatif distributor
             </small>
           </div>
+          
           @include('layouts.errors')
 
           <button type="submit" class="btn btn-primary">Tambah</button>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DistributorRequest;
 use Illuminate\Http\Request;
 use App\Distributor;
 use App\Item;
@@ -35,22 +36,8 @@ class DistributorController extends Controller
         return view('distributors.create');
     }
 
-    public function store()
+    public function store(DistributorRequest $request)
     {
-        $this->validate(request(), [
-            'name'              => 'required',
-            'owner'             => 'required',
-            'province'          => 'required',
-            'city'              => 'required',
-            'address'           => 'required',
-            'email'             => 'required',
-            'telephone'         => 'required',
-            // 'address_2'         => 'required',
-            // 'distance'          => 'required',
-            // 'bill'              => 'required',
-            'account'           => 'required'
-        ]);
-
         Distributor::create([
             'name'              => request('name'),
             'owner'             => request('owner'),
@@ -62,7 +49,7 @@ class DistributorController extends Controller
             'email'             => request('email'),
             'account'           => request('account'),
             'bill'              => request('bill'),
-            'disctance'         => request('disctance')
+            'distance'          => request('distance')
         ]);
 
         return redirect('/distributor');
@@ -75,19 +62,21 @@ class DistributorController extends Controller
         return view('distributors.edit', compact('distributor'));
     }
 
-    public function update($code)
+    public function update($code, DistributorRequest $request)
     {
-        $this->validate(request(), [
-            'name'      => 'required',
-            'address'   => 'required',
-            'telephone' => 'required'
-        ]);
-
         Distributor::where('id', $code)
                     ->update([
-                        'name'      => request('name'),
-                        'address'   => request('address'),
-                        'telephone' => request('telephone')
+                        'name'              => request('name'),
+                        'owner'             => request('owner'),
+                        'province'          => request('province'),
+                        'city'              => request('city'),
+                        'address'           => request('address'),
+                        'address_2'         => request('address_2'),
+                        'telephone'         => request('telephone'),
+                        'email'             => request('email'),
+                        'account'           => request('account'),
+                        'bill'              => request('bill'),
+                        'distance'          => request('distance')
                     ]);
 
         return redirect('/distributor');

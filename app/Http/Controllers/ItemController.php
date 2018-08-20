@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ItemRequest;
 use Illuminate\Http\Request;
 use App\Item;
 
@@ -34,22 +35,8 @@ class ItemController extends Controller
         return view('items.create');
     }
 
-    public function store()
+    public function store(ItemRequest $request)
     {
-        $this->validate(request(), [
-            'name'          => 'required',
-            'code'          => 'required',
-            // 'stock'         => 'required',
-            'price'         => 'required',
-            // 'description'   => 'required',
-            'weight'        => 'required',
-            'dimention'     => 'required',
-            'material'      => 'required'
-
-        ]);
-
-        // dd(request()->all());
-
         Item::create([
             'code'          => request('code'),
             'name'          => request('name'),
@@ -71,19 +58,8 @@ class ItemController extends Controller
         return view('items/edit', compact('item'));
     }
 
-    public function update($code)
+    public function update($code, ItemRequest $request)
     {
-        $this->validate(request(),[
-            'name'          => 'required',
-            'code'          => 'required',
-            // 'stock'         => 'required',
-            'price'         => 'required',
-            // 'description'   => 'required',
-            'weight'        => 'required',
-            'dimention'     => 'required',
-            'material'      => 'required'
-        ]);
-
         Item::where('code', $code)
             ->update([
                 'code'          => request('code'),

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DistributorItemRequest;
 use Illuminate\Http\Request;
 use App\Distributor;
 
@@ -18,15 +19,8 @@ class DistributorItemController extends Controller
      * using attach method to add data
      * with extra field on pivot many to many table
      */
-    public function store($distributor_id)
+    public function store($distributor_id, DistributorItemRequest $request)
     {
-        $this->validate(request(), [
-            // 'distributor_id'    => 'required',
-            'item_id'           => 'required',
-            'total'             => 'required',
-            'quantity'          => 'required'
-        ]);
-
         $distributor = Distributor::find($distributor_id);
 
         $distributor->items()->attach( [ request('item_id') =>  [
@@ -47,26 +41,7 @@ class DistributorItemController extends Controller
         $distributor->items()->detach($item_id);
     }
 
-    /**
-     * update data on pivot table
-     */
-    public function update($distributor_id, $item_id)
-    {
-        $this->validate(request(), [
-            'quantity'  => 'required',        
-            'total'     => 'required'
-        ]);
-
-        $distributor = 
-            Distributor::find($distributor_id)
-                        ->items()
-                        ->updateExistingPivot($item_id, [ 
-                            'total'     => request('total') ,
-                            'quantity'  => request('quantity')
-            ]);
-    }
-
-    /**
+     /**
      * page form to change data on pivot table
      */
     public function edit($distributor_id, $item_id)
@@ -77,5 +52,24 @@ class DistributorItemController extends Controller
                             ->first();
 
         return view('distributors.items.edit', compact('item', 'distributor_id'));
+    }
+
+    /**
+     * update data on pivot table
+     */
+    public function update($distributor_id, $item_id)
+    {
+        $this->validate(request(), [
+            'quantity'      => 'required',
+            'total'         => 'required'
+        ]);
+
+        $distributor = 
+            Distributor::find($distributor_id)
+                        ->items()
+                        ->updateExistingPivot($item_id, [ 
+                            'total'     => request('total') ,
+                            'quantity'  => request('quantity')
+            ]);
     }
 }
